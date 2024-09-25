@@ -1,0 +1,50 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <title>Login-Page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/logo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/server.js"></script>
+</head>
+<body>
+    <div class="container">
+     
+        <div class="login-box">
+
+            <div class="row">
+
+    <!-- Logo -->
+    <!-- <div id="background"></div> -->
+    <div id="logocontainer" onclick=fill()>
+        <div id="pelogo">RMHGO</div>
+        <div class="loader" style="left:2vh; top:0; height:2vh; width:0; animation:slide1 1s linear forwards infinite"></div>
+        <div class="loader" style="right:0; top:2vh; width:2vh; height:0; animation:slide2 1s linear forwards infinite; animation-delay:0.5s"></div>
+        <div class="loader" style="right:2vh; bottom:0; height:2vh; width:0; animation:slide3 1s linear forwards infinite"></div>
+        <div class="loader" style="left:0; bottom:2vh; width:2vh; height:0; animation:slide4 1s linear forwards infinite; animation-delay:0.5s"></div>
+    </div>
+
+    <!-- End of Logo -->
+
+                <div class="login-left">
+                    <h2>Login</h2>
+                    <form action="validation.php" method="post">
+                        <div class="textbox">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="user" placeholder="Username" required>
+                        </div>
+                        <div class="textbox">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <input type="submit" class="btn" value="Login">
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

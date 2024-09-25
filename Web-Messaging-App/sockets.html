@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/7.0.3/pusher.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/laravel-echo/1.11.2/echo.iife.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            window.Echo = new Echo({
+                broadcaster: 'pusher',
+                key: 'a3669b2c98cf6160a82d',
+                cluster: 'us2',
+                wsHost: '127.0.0.1',
+                wsPort: 6001,
+                forceTLS: false,
+                disableStats: true,
+                enabledTransports: ['ws'], // Enable WebSocket only
+                authEndpoint: 'http://127.0.0.1:8000/api/broadcasting/auth', // Ensure this matches
+                auth: {
+                    headers: {
+                        Authorization: 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzIyNTU4Njc2LCJleHAiOjE3MjI1ODc0NzYsIm5iZiI6MTcyMjU1ODY3NiwianRpIjoiWFdrem5KdUxwaGZIVU8yZyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pZXGsi8g0RerAzsKS-J2VZeQeQHO5Z4TH3cqbKbQA84' // Ensure proper authorization
+                    }
+                }
+            });
+
+            window.Echo.private('private-messages.2')
+                .listen('MessageSent', (e) => {
+                    console.log('Message received:', e.message);
+                    alert('Message received: ' + JSON.stringify(e.message));
+                });
+        });
+    </script>
+</head>
+<body>
+    <h1>WebSocket Test</h1>
+</body>
+</html>
